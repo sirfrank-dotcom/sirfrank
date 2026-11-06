@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sirfrank-dotcom.github.io/sirfrank/sitemap.xml
