@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIE EMPTY (Living A Life) | Read | Isaac Frank</title>
+<meta name="theme-color" content="#0b1830">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1830;--bg2:#0f2142;--ink:#ece6d6;--mute:#9aa7bd;--gold:#d4b06a;--line:#1f3358;--fs:19px;--serif:'Source Serif 4',Georgia,'Times New Roman',serif;--sans:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,var(--bg2),var(--bg) 60%) fixed,var(--bg);color:var(--ink);font-family:var(--serif);min-height:100vh}
+a{color:inherit;text-decoration:none}
+.bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 18px) 22px 16px;background:rgba(11,24,48,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font:500 15px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.bar div{display:flex;gap:26px}.bar button{all:unset;cursor:pointer;letter-spacing:.14em;text-transform:uppercase}
+.bar a:hover,.bar button:hover{color:var(--gold)}
+#prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--gold);z-index:9}
+main{max-width:640px;margin:0 auto;padding:0 22px 60px}
+.hero{text-align:center;padding:48px 0 40px}
+.hero h1{font-size:clamp(38px,11vw,60px);line-height:1.05;margin:0;font-weight:700;letter-spacing:.01em}
+.hero .sub{font-style:italic;font-size:clamp(28px,8vw,40px);color:var(--gold);margin:18px 0 12px}
+.hero .by{font:400 15px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-block;margin-top:44px;background:var(--gold);color:#101828;font:600 20px var(--sans);padding:22px 46px;border-radius:999px}
+.lbl{font:400 15px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:44px 0 14px}
+.row{display:flex;align-items:baseline;gap:22px;padding:19px 6px;border-bottom:1px solid var(--line);font-size:26px}
+.row i{font:normal 400 22px var(--serif);color:var(--gold);width:34px;flex:none}
+.row span{flex:1}.row small{font:400 17px var(--sans);color:var(--mute)}
+.row:hover span,.row.on span{color:var(--gold)}
+.endlink{display:block;margin-top:40px;text-align:center;font:500 14px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.top{padding:44px 0 8px}.top .n{font:400 14px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.top h2{font-size:clamp(32px,9vw,46px);line-height:1.12;margin:12px 0 8px;font-weight:700}
+.top .m{font:400 15px var(--sans);color:var(--mute)}
+.top hr{border:0;border-top:1px solid var(--line);margin:26px 0 8px}
+.body{font-size:var(--fs);line-height:1.85}.body p{margin:0 0 1.15em}
+.body blockquote{margin:1.6em 0;padding:4px 0 4px 20px;border-left:3px solid var(--gold);font-style:italic;font-size:1.06em;color:#f4eee0}
+.body .sub{text-align:center;color:var(--gold);font-style:italic}.body .sig{color:var(--mute);font-style:italic;margin-top:2em}
+.pn{display:flex;gap:14px;margin-top:44px}.pn a{flex:1;text-align:center;border:1px solid var(--line);border-radius:14px;padding:18px 10px;font:500 15px var(--sans);color:var(--mute)}
+.pn a.go{background:var(--gold);border-color:var(--gold);color:#101828;font-weight:600}.pn a:hover{border-color:var(--gold)}
+.hid{display:none}
+</style></head><body>
+<div id="prog"></div>
+<header class="bar"><a href="./">&larr; Site</a><div><button id="toc">Contents</button><button id="aa" aria-label="Text size">Aa</button></div></header>
+<main>
+<section id="home">
+ <div class="hero"><h1>DIE EMPTY</h1><div class="sub">Living A Life</div><div class="by">By Isaac Frank</div><a class="btn" id="start" href="#introduction">Start reading</a></div>
+ <div class="lbl">Before you begin</div><div id="g-front"></div>
+ <div class="lbl" id="chapters">The chapters</div><div id="g-chapters"></div>
+ <div class="lbl">Short inspirational articles</div><div id="g-articles"></div>
+ <a class="endlink" id="g-end" href="#about-the-author">About the author</a>
+</section>
+<article id="reader" class="hid"><div class="top"><div class="n" id="rn"></div><h2 id="rt"></h2><div class="m" id="rm"></div><hr></div><div class="body" id="rb"></div><nav class="pn" id="pn"></nav></article>
+</main>
+<script src="book-1.js"></script>
+<script src="book-2.js"></script>
+<script src="book-3.js"></script>
+<script>
+var D=window.BOOK||[];
+var $=function(i){return document.getElementById(i)},by={};D.forEach(function(s,i){s.i=i;by[s.id]=s});
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+var sizes=[17,19,21,24],si=parseInt(store('de-size'))||1;if(!(si>=0&&si<4))si=1;
+function applySize(){document.documentElement.style.setProperty('--fs',sizes[si]+'px')}applySize();
+$('aa').onclick=function(){si=(si+1)%4;applySize();store('de-size',si)};
+['front','chapters','articles'].forEach(function(g){var n=0,h='';D.forEach(function(s){if(s.g!==g)return;n++;
+ h+='<a class="row" href="#'+s.id+'"><i>'+(g==='chapters'?('0'+n).slice(-2):'·')+'</i><span>'+s.title+'</span><small>'+s.min+' min</small></a>'});$(('g-'+g)).innerHTML=h});
+function route(){var id=location.hash.slice(1),s=by[id];
+ if(s){$('home').classList.add('hid');$('reader').classList.remove('hid');
+  $('rn').textContent=s.g==='chapters'?'Chapter '+('0'+(D.filter(function(x){return x.g==='chapters'&&x.i<=s.i}).length)).slice(-2):s.g==='articles'?'Short article':s.g==='end'?'The author':'Before you begin';
+  $('rt').textContent=s.title;$('rm').textContent=s.min+' min read';$('rb').innerHTML=s.html;
+  var p=D[s.i-1],n=D[s.i+1];
+  $('pn').innerHTML=(p?'<a href="#'+p.id+'">&larr; '+p.title+'</a>':'<a href="#home">Contents</a>')+(n?'<a class="go" href="#'+n.id+'">Next: '+n.title+' &rarr;</a>':'<a class="go" href="#home">Back to contents</a>');
+  window.scrollTo(0,0);store('de-last',id)}
+ else{$('reader').classList.add('hid');$('home').classList.remove('hid');
+  if(id==='contents')setTimeout(function(){$('chapters').scrollIntoView()},30);else window.scrollTo(0,0)}
+ prog()}
+function prog(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;$('prog').style.width=(m>0&&!$('reader').classList.contains('hid')?h.scrollTop/m*100:0)+'%'}
+$('toc').onclick=function(){if(location.hash==='#contents')route();else location.hash='contents'};
+window.addEventListener('hashchange',route);window.addEventListener('scroll',prog,{passive:true});route();
+</script></body></html>
