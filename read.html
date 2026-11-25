@@ -128,6 +128,7 @@ main{max-width:640px;margin:0 auto;padding:0 22px 60px}
 .smallnote{font:12px/1.7 var(--sans);color:var(--mute);margin-top:20px}
 #retry{display:none;margin:12px auto 0;background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:30px;padding:12px 22px;font:14px var(--sans);cursor:pointer}
 #retry.show{display:inline-block}
+#retry:disabled{opacity:.6;cursor:wait}
 
 @media(max-width:480px){
   .bar{padding-left:16px;padding-right:16px}
@@ -251,7 +252,7 @@ function removeValue(key){
   try{ localStorage.removeItem(key); }catch(e){}
 }
 
-/* Calls the two protected Supabase Edge Functions. */
+/* Calls the protected Supabase Edge Functions. */
 async function callFunction(functionName,payload){
   var response;
 
@@ -262,8 +263,7 @@ async function callFunction(functionName,payload){
         method:"POST",
         headers:{
           "Content-Type":"application/json",
-          "apikey":SUPABASE_PUBLISHABLE_KEY,
-          "Authorization":"Bearer " + SUPABASE_PUBLISHABLE_KEY
+          "apikey":SUPABASE_PUBLISHABLE_KEY
         },
         body:JSON.stringify(payload)
       }
@@ -273,6 +273,7 @@ async function callFunction(functionName,payload){
   }
 
   var data;
+
   try{
     data = await response.json();
   }catch(error){
@@ -289,6 +290,7 @@ async function callFunction(functionName,payload){
 function showReader(){
   $("purchase").classList.add("hid");
   $("home").classList.remove("hid");
+  $("reader").classList.add("hid");
   $("toc").classList.remove("hid");
   $("aa").classList.remove("hid");
 }
@@ -329,7 +331,7 @@ function executeBookFiles(files){
   bookLoaded = true;
 }
 
-/* Ask Supabase to authorise a verified Paystack purchase. */
+/* Authorise a verified Paystack purchase. */
 async function authorisePurchase(reference,email){
   var result = await callFunction("clever-handler",{
     action:"authorize",
@@ -366,13 +368,13 @@ async function retrieveBook(token){
   retryButton.classList.remove("show");
 
   if(location.hash && location.hash !== "#"){
-    route();
+    window.route();
   }else{
     location.hash = "contents";
   }
 }
 
-/* Reuse the saved purchase reference if a saved token expires. */
+/* Restore previously purchased access. */
 async function restoreAccess(){
   var savedToken = getValue("de-access-token");
   var savedReference = getValue("de-payment-reference");
@@ -396,7 +398,7 @@ async function restoreAccess(){
       await retrieveBook(token);
       return true;
     }catch(error){
-      setStatus(error.message || "Your previous purchase could not be restored.", "error");
+      setStatus(error.message || "Your previous purchase could not be restored.","error");
       retryButton.classList.add("show");
       return false;
     }
@@ -406,31 +408,63 @@ async function restoreAccess(){
   return false;
 }
 
-/* Retry access without asking the customer to pay again. */
+/* Retry access by verifying the original transaction again. */
 async function retryPreviousPurchase(){
   var reference = getValue("de-payment-reference");
   var email = getValue("de-customer-email");
 
   if(!reference || !email){
-    setStatus("No previous purchase was found on this browser. Please enter your email and contact support if you have already paid.","error");
+    setStatus(
+      "No previous purchase was found on this browser. Please enter your email and contact support if you have already paid.",
+      "error"
+    );
     return;
   }
 
   try{
     retryButton.disabled = true;
-    setStatus("Restoring your access...");
+    retryButton.textContent = "Verifying payment...";
+    setStatus("Checking your previous payment with Paystack...");
+
+    /* Reverify the original transaction.
+       The processor recognises an already-recorded purchase. */
+    var verification = await callFunction("clever-processor",{
+      reference:reference,
+      book_slug:BOOK_SLUG,
+      customer_email:email
+    });
+
+    if(!verification.success){
+      throw new Error("Your payment could not be verified.");
+    }
+
+    /* Authorise access to the purchased book. */
+    setStatus("Payment confirmed. Restoring your access...","success");
+
     var token = await authorisePurchase(reference,email);
+
+    /* Retrieve the protected book files. */
     await retrieveBook(token);
+
   }catch(error){
-    setStatus(error.message,"error");
+    console.error("Retry access error:",error);
+
+    setStatus(
+      error.message || "We could not restore your access. Please try again.",
+      "error"
+    );
+
+    retryButton.classList.add("show");
+
   }finally{
     retryButton.disabled = false;
+    retryButton.textContent = "Retry access";
   }
 }
 
 /* Paystack payment flow. */
 function beginPayment(){
-  var email = emailInput.value.trim();
+  var email = emailInput.value.trim().toLowerCase();
 
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     setStatus("Please enter a valid email address before making payment.","error");
@@ -470,6 +504,7 @@ function beginPayment(){
     });
 
     handler.openIframe();
+
   }catch(error){
     setBusy(false);
     setStatus("Unable to open the payment window. Please try again.","error");
@@ -481,7 +516,7 @@ async function completePayment(reference,email){
   setBusy(true,"Verifying payment...");
   setStatus("Payment submitted. Verifying your transaction securely...");
 
-  /* Keep the reference so a successful buyer can retry delivery if needed. */
+  /* Save the reference so the customer can retry delivery if needed. */
   saveValue("de-payment-reference",reference);
   saveValue("de-customer-email",email);
 
@@ -492,7 +527,7 @@ async function completePayment(reference,email){
       customer_email:email
     });
 
-    if(verification.success === false){
+    if(!verification.success){
       throw new Error(verification.error || "Payment verification failed.");
     }
 
@@ -503,17 +538,19 @@ async function completePayment(reference,email){
 
   }catch(error){
     setBusy(false);
+
     setStatus(
       "We could not complete book delivery: " + error.message +
       " Your payment reference is " + reference +
       ". Please use Retry access before attempting another payment.",
       "error"
     );
+
     retryButton.classList.add("show");
   }
 }
 
-/* Reader functions are created only after the protected files arrive. */
+/* Reader functions are created after the protected files arrive. */
 function initializeReader(){
   var D = window.BOOK || [];
   var by = {};
@@ -534,6 +571,7 @@ function initializeReader(){
 
   var sizes = [17,19,21,24];
   var si = parseInt(store("de-size"),10);
+
   if(!(si >= 0 && si < 4)) si = 1;
 
   function applySize(){
@@ -554,7 +592,9 @@ function initializeReader(){
 
     D.forEach(function(s){
       if(s.g !== g) return;
+
       n++;
+
       html += '<a class="row" href="#'+s.id+'"><i>'+
         (g === "chapters" ? ("0"+n).slice(-2) : "·")+
         '</i><span>'+s.title+'</span><small>'+s.min+' min</small></a>';
@@ -566,6 +606,7 @@ function initializeReader(){
   function progress(){
     var h = document.documentElement;
     var max = h.scrollHeight-h.clientHeight;
+
     $("prog").style.width =
       (max > 0 && !$("reader").classList.contains("hid")
         ? h.scrollTop/max*100 : 0)+"%";
@@ -605,6 +646,7 @@ function initializeReader(){
 
       window.scrollTo(0,0);
       store("de-last",id);
+
     }else{
       $("reader").classList.add("hid");
       $("home").classList.remove("hid");
@@ -623,23 +665,23 @@ function initializeReader(){
 
   $("toc").onclick = function(){
     if(location.hash === "#contents"){
-      route();
+      window.route();
     }else{
       location.hash = "contents";
     }
   };
 
-  window.addEventListener("hashchange",route);
+  window.addEventListener("hashchange",window.route);
   window.addEventListener("scroll",progress,{passive:true});
 
-  route();
+  window.route();
 }
 
 /* Connect the page controls. */
 buyButton.addEventListener("click",beginPayment);
 retryButton.addEventListener("click",retryPreviousPurchase);
 
-/* Start with the purchase gate. The book stays hidden until access is verified. */
+/* Start with the purchase gate. */
 showPurchase();
 setBusy(false);
 
