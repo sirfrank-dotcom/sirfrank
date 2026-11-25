@@ -1,20 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Primary SEO -->
 <title>DIE EMPTY (Living A Life) by Isaac Frank | Read Online</title>
 <meta name="description" content="Read DIE EMPTY (Living A Life), a personal development book by Nigerian writer and poet Isaac Frank (Sir Frank). Explore ideas on purpose, self-discovery, personal growth and making a meaningful impact.">
 <meta name="author" content="Isaac Frank">
 <meta name="robots" content="index, follow, max-image-preview:large">
-
 <link rel="canonical" href="https://sirfrank-dotcom.github.io/sirfrank/read.html">
-
 <meta name="theme-color" content="#0b1830">
 
-<!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="book">
 <meta property="og:title" content="DIE EMPTY (Living A Life) | Isaac Frank">
 <meta property="og:description" content="Explore DIE EMPTY (Living A Life), a book by Isaac Frank (Sir Frank) about purpose, self-discovery, personal growth and making a meaningful impact.">
@@ -23,13 +20,11 @@
 <meta property="og:image:alt" content="DIE EMPTY (Living A Life) book cover by Isaac Frank">
 <meta property="og:site_name" content="Isaac Frank | Sir Frank">
 
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DIE EMPTY (Living A Life) by Isaac Frank">
 <meta name="twitter:description" content="Read DIE EMPTY, a personal development book by Isaac Frank (Sir Frank), exploring purpose, self-discovery and meaningful living.">
 <meta name="twitter:image" content="https://sirfrank-dotcom.github.io/sirfrank/die-empty-cover.jpg">
 
-<!-- Book Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,13 +64,12 @@
       ],
       "inLanguage": "en",
       "url": "https://sirfrank-dotcom.github.io/sirfrank/read.html",
-      "isAccessibleForFree": true
+      "isAccessibleForFree": false
     }
   ]
 }
 </script>
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -96,7 +90,8 @@ main{max-width:640px;margin:0 auto;padding:0 22px 60px}
 .hero h1{font-size:clamp(38px,11vw,60px);line-height:1.05;margin:0;font-weight:700;letter-spacing:.01em}
 .hero .sub{font-style:italic;font-size:clamp(28px,8vw,40px);color:var(--gold);margin:18px 0 12px}
 .hero .by{font:400 15px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.btn{display:inline-block;margin-top:44px;background:var(--gold);color:#101828;font:600 20px var(--sans);padding:22px 46px;border-radius:999px}
+.btn{display:inline-block;margin-top:28px;background:var(--gold);color:#101828;font:600 17px var(--sans);padding:18px 34px;border:0;border-radius:999px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:wait}
 .lbl{font:400 15px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:44px 0 14px}
 .row{display:flex;align-items:baseline;gap:22px;padding:19px 6px;border-bottom:1px solid var(--line);font-size:26px}
 .row i{font:normal 400 22px var(--serif);color:var(--gold);width:34px;flex:none}
@@ -118,7 +113,21 @@ main{max-width:640px;margin:0 auto;padding:0 22px 60px}
 .pn a{flex:1;text-align:center;border:1px solid var(--line);border-radius:14px;padding:18px 10px;font:500 15px var(--sans);color:var(--mute)}
 .pn a.go{background:var(--gold);border-color:var(--gold);color:#101828;font-weight:600}
 .pn a:hover{border-color:var(--gold)}
-.hid{display:none}
+.hid{display:none!important}
+
+#purchase{padding:35px 0 60px;text-align:center}
+#purchase .cover{width:min(210px,65%);height:auto;border-radius:8px;box-shadow:0 18px 45px rgba(0,0,0,.35);margin:0 auto 28px;display:block}
+#purchase h2{font-size:clamp(28px,8vw,38px);margin:0 0 10px}
+#purchase .description{color:var(--mute);font:400 15px/1.8 var(--sans);max-width:470px;margin:0 auto}
+.price{font:600 30px var(--sans);color:var(--gold);margin:25px 0 8px}
+#email{display:block;width:100%;max-width:390px;margin:22px auto 0;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:#101f3b;color:var(--ink);font:16px var(--sans);outline:none}
+#email:focus{border-color:var(--gold)}
+#status{min-height:26px;margin:18px auto 0;color:var(--mute);font:14px/1.6 var(--sans);max-width:440px}
+#status.error{color:#ff9b9b}
+#status.success{color:#a8dfb0}
+.smallnote{font:12px/1.7 var(--sans);color:var(--mute);margin-top:20px}
+#retry{display:none;margin:12px auto 0;background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:30px;padding:12px 22px;font:14px var(--sans);cursor:pointer}
+#retry.show{display:inline-block}
 
 @media(max-width:480px){
   .bar{padding-left:16px;padding-right:16px}
@@ -126,7 +135,6 @@ main{max-width:640px;margin:0 auto;padding:0 22px 60px}
   main{padding-left:18px;padding-right:18px}
   .row{font-size:22px;gap:14px}
   .row small{font-size:14px}
-  .btn{padding:19px 36px}
   .pn{gap:9px}
   .pn a{font-size:13px;padding:15px 7px}
 }
@@ -139,13 +147,29 @@ main{max-width:640px;margin:0 auto;padding:0 22px 60px}
 <header class="bar">
   <a href="./">&larr; Site</a>
   <div>
-    <button id="toc">Contents</button>
-    <button id="aa" aria-label="Text size">Aa</button>
+    <button id="toc" class="hid" type="button">Contents</button>
+    <button id="aa" class="hid" type="button" aria-label="Text size">Aa</button>
   </div>
 </header>
 
 <main>
-<section id="home">
+<section id="purchase">
+  <img class="cover" src="die-empty-cover.jpg" alt="DIE EMPTY (Living A Life) book cover">
+  <h2>DIE EMPTY</h2>
+  <div style="color:var(--gold);font-style:italic;font-size:22px;margin-bottom:16px">Living A Life</div>
+  <p class="description">Get access to the complete book by Isaac Frank (Sir Frank). Explore purpose, self-discovery, personal growth and the importance of making a meaningful impact.</p>
+  <div class="price">₦1,500</div>
+  <p class="description">One-time payment for access to the online book.</p>
+
+  <input id="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+  <button class="btn" id="buy" type="button">Buy and read the book</button>
+
+  <div id="status" role="status" aria-live="polite"></div>
+  <button id="retry" type="button">Retry access</button>
+  <div class="smallnote">Secure payment powered by Paystack.</div>
+</section>
+
+<section id="home" class="hid">
   <div class="hero">
     <h1>DIE EMPTY</h1>
     <div class="sub">Living A Life</div>
@@ -177,92 +201,455 @@ main{max-width:640px;margin:0 auto;padding:0 22px 60px}
 </article>
 </main>
 
-<script src="book-1.js"></script>
-<script src="book-2.js"></script>
-<script src="book-3.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
 <script>
-var D=window.BOOK||[];
-var $=function(i){return document.getElementById(i)},by={};
+(function(){
+"use strict";
 
-D.forEach(function(s,i){s.i=i;by[s.id]=s});
+/* Supabase project details */
+var SUPABASE_URL = "https://vwoypamvutbgmogepisa.supabase.co";
+var SUPABASE_PUBLISHABLE_KEY = "sb_publishable_SuMugPRjI7wbWMT49LLyGw_59HXSjc1";
 
-function store(k,v){
+/* Paystack public test key */
+var PAYSTACK_PUBLIC_KEY = "pk_test_92205f66fd45931741b3db33bd0cf6282fabcd5f";
+
+/* Book payment details */
+var BOOK_SLUG = "die-empty";
+var BOOK_AMOUNT = 150000;
+
+var $ = function(id){ return document.getElementById(id); };
+
+var statusBox = $("status");
+var buyButton = $("buy");
+var retryButton = $("retry");
+var emailInput = $("email");
+
+var accessToken = null;
+var bookLoaded = false;
+var paymentFinished = false;
+
+function setStatus(message,type){
+  statusBox.textContent = message || "";
+  statusBox.className = type || "";
+}
+
+function setBusy(busy,label){
+  buyButton.disabled = busy;
+  buyButton.textContent = label || (busy ? "Please wait..." : "Buy and read the book");
+}
+
+function saveValue(key,value){
+  try{ localStorage.setItem(key,value); }catch(e){}
+}
+
+function getValue(key){
+  try{ return localStorage.getItem(key); }catch(e){ return null; }
+}
+
+function removeValue(key){
+  try{ localStorage.removeItem(key); }catch(e){}
+}
+
+/* Calls the two protected Supabase Edge Functions. */
+async function callFunction(functionName,payload){
+  var response;
+
   try{
-    if(v===undefined)return localStorage.getItem(k);
-    localStorage.setItem(k,v)
-  }catch(e){return null}
-}
-
-var sizes=[17,19,21,24],si=parseInt(store('de-size'))||1;
-if(!(si>=0&&si<4))si=1;
-
-function applySize(){
-  document.documentElement.style.setProperty('--fs',sizes[si]+'px')
-}
-applySize();
-
-$('aa').onclick=function(){
-  si=(si+1)%4;
-  applySize();
-  store('de-size',si)
-};
-
-['front','chapters','articles'].forEach(function(g){
-  var n=0,h='';
-  D.forEach(function(s){
-    if(s.g!==g)return;
-    n++;
-    h+='<a class="row" href="#'+s.id+'"><i>'+(g==='chapters'?('0'+n).slice(-2):'·')+'</i><span>'+s.title+'</span><small>'+s.min+' min</small></a>'
-  });
-  $('g-'+g).innerHTML=h
-});
-
-function route(){
-  var id=location.hash.slice(1),s=by[id];
-
-  if(s){
-    $('home').classList.add('hid');
-    $('reader').classList.remove('hid');
-
-    $('rn').textContent=s.g==='chapters'?'Chapter '+('0'+(D.filter(function(x){return x.g==='chapters'&&x.i<=s.i}).length)).slice(-2):s.g==='articles'?'Short article':s.g==='end'?'The author':'Before you begin';
-
-    $('rt').textContent=s.title;
-    $('rm').textContent=s.min+' min read';
-    $('rb').innerHTML=s.html;
-
-    var p=D[s.i-1],n=D[s.i+1];
-
-    $('pn').innerHTML=(p?'<a href="#'+p.id+'">&larr; '+p.title+'</a>':'<a href="#home">Contents</a>')+(n?'<a class="go" href="#'+n.id+'">Next: '+n.title+' &rarr;</a>':'<a class="go" href="#home">Back to contents</a>');
-
-    window.scrollTo(0,0);
-    store('de-last',id)
-  }else{
-    $('reader').classList.add('hid');
-    $('home').classList.remove('hid');
-
-    if(id==='contents')setTimeout(function(){
-      $('chapters').scrollIntoView()
-    },30);
-    else window.scrollTo(0,0)
+    response = await fetch(
+      SUPABASE_URL + "/functions/v1/" + functionName,
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "apikey":SUPABASE_PUBLISHABLE_KEY,
+          "Authorization":"Bearer " + SUPABASE_PUBLISHABLE_KEY
+        },
+        body:JSON.stringify(payload)
+      }
+    );
+  }catch(error){
+    throw new Error("Could not connect. Please check your internet connection and try again.");
   }
 
-  prog()
+  var data;
+  try{
+    data = await response.json();
+  }catch(error){
+    throw new Error("The server returned an unreadable response. Please try again.");
+  }
+
+  if(!response.ok || data.success === false){
+    throw new Error(data.error || data.message || "The request could not be completed.");
+  }
+
+  return data;
 }
 
-function prog(){
-  var h=document.documentElement,m=h.scrollHeight-h.clientHeight;
-  $('prog').style.width=(m>0&&!$('reader').classList.contains('hid')?h.scrollTop/m*100:0)+'%'
+function showReader(){
+  $("purchase").classList.add("hid");
+  $("home").classList.remove("hid");
+  $("toc").classList.remove("hid");
+  $("aa").classList.remove("hid");
 }
 
-$('toc').onclick=function(){
-  if(location.hash==='#contents')route();
-  else location.hash='contents'
-};
+function showPurchase(){
+  $("purchase").classList.remove("hid");
+  $("home").classList.add("hid");
+  $("reader").classList.add("hid");
+  $("toc").classList.add("hid");
+  $("aa").classList.add("hid");
+}
 
-window.addEventListener('hashchange',route);
-window.addEventListener('scroll',prog,{passive:true});
-route();
+/* Loads the three private book files returned by clever-handler. */
+function executeBookFiles(files){
+  var names = ["book-1.js","book-2.js","book-3.js"];
+
+  if(!files || !files["book-1.js"] || !files["book-2.js"] || !files["book-3.js"]){
+    throw new Error("The book files could not be retrieved. Please contact the website owner.");
+  }
+
+  window.BOOK = [];
+
+  names.forEach(function(name){
+    var source = files[name];
+
+    if(typeof source !== "string" || !source.trim()){
+      throw new Error("A book section is missing. Please contact the website owner.");
+    }
+
+    new Function("window", source)(window);
+  });
+
+  if(!Array.isArray(window.BOOK) || !window.BOOK.length){
+    throw new Error("The book content could not be loaded. Please try again.");
+  }
+
+  initializeReader();
+  bookLoaded = true;
+}
+
+/* Ask Supabase to authorise a verified Paystack purchase. */
+async function authorisePurchase(reference,email){
+  var result = await callFunction("clever-handler",{
+    action:"authorize",
+    reference:reference,
+    email:email
+  });
+
+  if(!result.token){
+    throw new Error("Payment was received, but access could not be authorised. Please retry access.");
+  }
+
+  accessToken = result.token;
+  saveValue("de-access-token",accessToken);
+  saveValue("de-payment-reference",reference);
+  saveValue("de-customer-email",email);
+
+  return accessToken;
+}
+
+/* Retrieve the book only after the backend approves the access token. */
+async function retrieveBook(token){
+  var result = await callFunction("clever-handler",{
+    action:"read",
+    token:token
+  });
+
+  if(!result.files){
+    throw new Error("Your access was confirmed, but the book could not be delivered. Please retry.");
+  }
+
+  executeBookFiles(result.files);
+  showReader();
+  setStatus("");
+  retryButton.classList.remove("show");
+
+  if(location.hash && location.hash !== "#"){
+    route();
+  }else{
+    location.hash = "contents";
+  }
+}
+
+/* Reuse the saved purchase reference if a saved token expires. */
+async function restoreAccess(){
+  var savedToken = getValue("de-access-token");
+  var savedReference = getValue("de-payment-reference");
+  var savedEmail = getValue("de-customer-email");
+
+  if(savedToken){
+    try{
+      setStatus("Checking your book access...");
+      await retrieveBook(savedToken);
+      return true;
+    }catch(error){
+      accessToken = null;
+      removeValue("de-access-token");
+    }
+  }
+
+  if(savedReference && savedEmail){
+    try{
+      setStatus("Restoring your previous purchase...");
+      var token = await authorisePurchase(savedReference,savedEmail);
+      await retrieveBook(token);
+      return true;
+    }catch(error){
+      setStatus(error.message || "Your previous purchase could not be restored.", "error");
+      retryButton.classList.add("show");
+      return false;
+    }
+  }
+
+  setStatus("");
+  return false;
+}
+
+/* Retry access without asking the customer to pay again. */
+async function retryPreviousPurchase(){
+  var reference = getValue("de-payment-reference");
+  var email = getValue("de-customer-email");
+
+  if(!reference || !email){
+    setStatus("No previous purchase was found on this browser. Please enter your email and contact support if you have already paid.","error");
+    return;
+  }
+
+  try{
+    retryButton.disabled = true;
+    setStatus("Restoring your access...");
+    var token = await authorisePurchase(reference,email);
+    await retrieveBook(token);
+  }catch(error){
+    setStatus(error.message,"error");
+  }finally{
+    retryButton.disabled = false;
+  }
+}
+
+/* Paystack payment flow. */
+function beginPayment(){
+  var email = emailInput.value.trim();
+
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    setStatus("Please enter a valid email address before making payment.","error");
+    emailInput.focus();
+    return;
+  }
+
+  if(!window.PaystackPop){
+    setStatus("The payment service could not load. Please refresh the page and try again.","error");
+    return;
+  }
+
+  paymentFinished = false;
+  retryButton.classList.remove("show");
+  setBusy(true,"Opening secure payment...");
+  setStatus("Connecting to Paystack...");
+
+  try{
+    var handler = PaystackPop.setup({
+      key:PAYSTACK_PUBLIC_KEY,
+      email:email,
+      amount:BOOK_AMOUNT,
+      currency:"NGN",
+      ref:"DE_" + Date.now() + "_" + Math.floor(Math.random()*1000000),
+
+      callback:function(response){
+        paymentFinished = true;
+        completePayment(response.reference,email);
+      },
+
+      onClose:function(){
+        if(!paymentFinished){
+          setBusy(false);
+          setStatus("Payment window closed. No payment has been confirmed.");
+        }
+      }
+    });
+
+    handler.openIframe();
+  }catch(error){
+    setBusy(false);
+    setStatus("Unable to open the payment window. Please try again.","error");
+  }
+}
+
+async function completePayment(reference,email){
+  paymentFinished = true;
+  setBusy(true,"Verifying payment...");
+  setStatus("Payment submitted. Verifying your transaction securely...");
+
+  /* Keep the reference so a successful buyer can retry delivery if needed. */
+  saveValue("de-payment-reference",reference);
+  saveValue("de-customer-email",email);
+
+  try{
+    var verification = await callFunction("clever-processor",{
+      reference:reference,
+      book_slug:BOOK_SLUG,
+      customer_email:email
+    });
+
+    if(verification.success === false){
+      throw new Error(verification.error || "Payment verification failed.");
+    }
+
+    setStatus("Payment verified. Preparing your book...","success");
+
+    var token = await authorisePurchase(reference,email);
+    await retrieveBook(token);
+
+  }catch(error){
+    setBusy(false);
+    setStatus(
+      "We could not complete book delivery: " + error.message +
+      " Your payment reference is " + reference +
+      ". Please use Retry access before attempting another payment.",
+      "error"
+    );
+    retryButton.classList.add("show");
+  }
+}
+
+/* Reader functions are created only after the protected files arrive. */
+function initializeReader(){
+  var D = window.BOOK || [];
+  var by = {};
+
+  D.forEach(function(s,i){
+    s.i = i;
+    by[s.id] = s;
+  });
+
+  function store(k,v){
+    try{
+      if(v === undefined) return localStorage.getItem(k);
+      localStorage.setItem(k,v);
+    }catch(e){
+      return null;
+    }
+  }
+
+  var sizes = [17,19,21,24];
+  var si = parseInt(store("de-size"),10);
+  if(!(si >= 0 && si < 4)) si = 1;
+
+  function applySize(){
+    document.documentElement.style.setProperty("--fs",sizes[si]+"px");
+  }
+
+  applySize();
+
+  $("aa").onclick = function(){
+    si = (si+1)%4;
+    applySize();
+    store("de-size",si);
+  };
+
+  ["front","chapters","articles"].forEach(function(g){
+    var n = 0;
+    var html = "";
+
+    D.forEach(function(s){
+      if(s.g !== g) return;
+      n++;
+      html += '<a class="row" href="#'+s.id+'"><i>'+
+        (g === "chapters" ? ("0"+n).slice(-2) : "·")+
+        '</i><span>'+s.title+'</span><small>'+s.min+' min</small></a>';
+    });
+
+    $("g-"+g).innerHTML = html;
+  });
+
+  function progress(){
+    var h = document.documentElement;
+    var max = h.scrollHeight-h.clientHeight;
+    $("prog").style.width =
+      (max > 0 && !$("reader").classList.contains("hid")
+        ? h.scrollTop/max*100 : 0)+"%";
+  }
+
+  window.route = function(){
+    var id = location.hash.slice(1);
+    var s = by[id];
+
+    if(s){
+      $("home").classList.add("hid");
+      $("reader").classList.remove("hid");
+
+      var chapterNumber = D.filter(function(x){
+        return x.g === "chapters" && x.i <= s.i;
+      }).length;
+
+      $("rn").textContent =
+        s.g === "chapters" ? "Chapter "+("0"+chapterNumber).slice(-2) :
+        s.g === "articles" ? "Short article" :
+        s.g === "end" ? "The author" : "Before you begin";
+
+      $("rt").textContent = s.title;
+      $("rm").textContent = s.min+" min read";
+      $("rb").innerHTML = s.html;
+
+      var previous = D[s.i-1];
+      var next = D[s.i+1];
+
+      $("pn").innerHTML =
+        (previous
+          ? '<a href="#'+previous.id+'">&larr; '+previous.title+'</a>'
+          : '<a href="#contents">Contents</a>')+
+        (next
+          ? '<a class="go" href="#'+next.id+'">Next: '+next.title+' &rarr;</a>'
+          : '<a class="go" href="#contents">Back to contents</a>');
+
+      window.scrollTo(0,0);
+      store("de-last",id);
+    }else{
+      $("reader").classList.add("hid");
+      $("home").classList.remove("hid");
+
+      if(id === "contents"){
+        setTimeout(function(){
+          $("chapters").scrollIntoView();
+        },30);
+      }else{
+        window.scrollTo(0,0);
+      }
+    }
+
+    progress();
+  };
+
+  $("toc").onclick = function(){
+    if(location.hash === "#contents"){
+      route();
+    }else{
+      location.hash = "contents";
+    }
+  };
+
+  window.addEventListener("hashchange",route);
+  window.addEventListener("scroll",progress,{passive:true});
+
+  route();
+}
+
+/* Connect the page controls. */
+buyButton.addEventListener("click",beginPayment);
+retryButton.addEventListener("click",retryPreviousPurchase);
+
+/* Start with the purchase gate. The book stays hidden until access is verified. */
+showPurchase();
+setBusy(false);
+
+restoreAccess().then(function(restored){
+  if(!restored && !getValue("de-payment-reference")){
+    setStatus("");
+  }
+});
+
+})();
 </script>
 
 </body>
